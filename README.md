@@ -20,5 +20,9 @@ Backend: Flask, OpenCV (Python)
 <td> Aaditya Raj </td>
 <td> <a href="https://github.com/aaditya1612">Aadity1612</a> </td>
 </tr>
+<tr>
+<td> Aman Kumar Singh </td>
+<td> <a href="https://github.com/AmankumarSingh18">AmanKumarSingh18</a> </td>
+</tr>
 
 </table>
