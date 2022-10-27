@@ -18,8 +18,8 @@ ret, mask = cv.threshold(img2gray, 1, 255, cv.THRESH_BINARY)
 while True:
     ret, frame = cap.read(0)
     
-    # frame = createmarks.CreateMarks(cap) 
-    #Uncomment above line for creating lines on fingers.
+    frame = createmarks.CreateMarks(cap) 
+    
     
     #Fliping the frame horizontally
     frame = cv.flip(frame,1)
