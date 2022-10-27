@@ -4,7 +4,7 @@ A web based application capable of tracking movement of fingers and drawing over
 <br>
 
 ## :abacus:	Tech Stack
-Frontend: HTML5, CSS3
+Frontend: HTML5, CSS3 <br>
 Backend: Flask, OpenCV (Python)
 
 <br>
