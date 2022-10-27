@@ -25,4 +25,8 @@ Backend: Flask, OpenCV (Python)
 <td> <a href="https://github.com/AmankumarSingh18">AmanKumarSingh18</a> </td>
 </tr>
 
+<tr>
+<td> Aryan Raj </td>
+<td> <a href="https://github.com/NEMESIS-004">NEMESIS-004</a> </td>
+</tr>
 </table>
