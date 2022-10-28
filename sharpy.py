@@ -52,15 +52,6 @@ while True:
             rpoints[red_index].appendleft(center)
         elif colorIndex == 3:
             ypoints[yellow_index].appendleft(center)
-        points = [bpoints, gpoints, rpoints, ypoints]
-        for i in range(len(points)):
-            for j in range(len(points[i])):
-                for k in range(1, len(points[i][j])):
-                    if points[i][j][k - 1] is None or points[i][j][k] is None:
-                        continue
-                    cv.line(
-                        frame, points[i][j][k - 1], points[i][j][k], (255, 255, 255), 10
-                    )
 
     else:
         bpoints.append(deque(maxlen=512))
@@ -71,6 +62,13 @@ while True:
         red_index += 1
         ypoints.append(deque(maxlen=512))
         yellow_index += 1
+    points = [bpoints, gpoints, rpoints, ypoints]
+    for i in range(len(points)):
+        for j in range(len(points[i])):
+            for k in range(1, len(points[i][j])):
+                if points[i][j][k - 1] is None or points[i][j][k] is None:
+                    continue
+                cv.line(frame, points[i][j][k - 1], points[i][j][k], (255, 255, 255), 3)
     cv.imshow("SharPy", frame)
 
     if cv.waitKey(1) & 0xFF == ord("q"):
