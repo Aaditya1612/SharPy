@@ -29,6 +29,8 @@ yellow_index = 0
 
 colorIndex = 0
 
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 255, 255)]
+
 
 while True:
     ret, frame = cap.read(0)
@@ -54,6 +56,25 @@ while True:
             ypoints[yellow_index].appendleft(center)
 
     else:
+        if center[1] <= 50:
+            if 53 <= center[0] <= 85:
+                colorIndex = 0  # For Blue
+            if 133 <= center[0] <= 168:
+                colorIndex = 3  # For Yellow
+            if 218 <= center[0] <= 253:
+                colorIndex = 1  # For green
+            if 300 < center[0] <= 333:
+                colorIndex = 2  # For red
+            if 476 <= center[0] <= 512:
+                bpoints = [deque(maxlen=512)]
+                gpoints = [deque(maxlen=512)]
+                ypoints = [deque(maxlen=512)]
+                rpoints = [deque(maxlen=512)]
+
+                blue_index = 0
+                red_index = 0
+                green_index = 0
+                yellow_index = 0
         bpoints.append(deque(maxlen=512))
         blue_index += 1
         gpoints.append(deque(maxlen=512))
@@ -62,13 +83,14 @@ while True:
         red_index += 1
         ypoints.append(deque(maxlen=512))
         yellow_index += 1
+
     points = [bpoints, gpoints, rpoints, ypoints]
     for i in range(len(points)):
         for j in range(len(points[i])):
             for k in range(1, len(points[i][j])):
                 if points[i][j][k - 1] is None or points[i][j][k] is None:
                     continue
-                cv.line(frame, points[i][j][k - 1], points[i][j][k], (255, 255, 255), 3)
+                cv.line(frame, points[i][j][k - 1], points[i][j][k], colors[i], 5)
     cv.imshow("SharPy", frame)
 
     if cv.waitKey(1) & 0xFF == ord("q"):
