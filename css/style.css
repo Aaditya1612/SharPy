@@ -69,7 +69,7 @@
     width:100%;
     top: 0px;
     left: 0px;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     opacity:.93;
 }
