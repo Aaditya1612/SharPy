@@ -185,7 +185,7 @@ hr{
 #about::before{
     content: "";
     position: absolute;
-    height: 905px;
+    height: 909px;
     width: 100%;
     left: 0px;
     filter: brightness(.34);
