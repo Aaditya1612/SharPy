@@ -121,7 +121,7 @@ hr{
     background:url(../img/preview.avif)no-repeat center center/cover;
     z-index: -1;
     filter: brightness(.73);
-    width: 1267px;
+    width: 100vw;
     left: 0px;
     top: 553px;
     height: 582px;
@@ -187,11 +187,12 @@ hr{
     content: "";
     position: absolute;
     height: 909px;
-    width: 1267px;
+    width: 100vw;
     left: 0px;
     filter: brightness(.73);
     z-index: -1;
     background: url(../img/about8.avif) no-repeat center center/cover;
+    background-attachment: fixed;
 }
 #about .abhead{
     display:flex;
@@ -244,7 +245,7 @@ footer{
     background: rgb(245, 243, 243);
     height: auto;
     /* width: 100vw; */
-    width: 1267px;
+    width: 100vw;
     padding-top: 40px;
     color: rgba(251, 251, 251, 0.929);
 }
@@ -302,7 +303,7 @@ footer{
     padding: 20px;
     padding-bottom: 40px;
     text-align: center;
-    width: 1227px;
+    width: 100vw;
 }
 .footer-bottom p{
     float: left;
@@ -355,4 +356,3 @@ list-style: none;
 .footer-menu ul li a:hover{
   color: #27bcda;
 }
-
