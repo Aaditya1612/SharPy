@@ -9,6 +9,45 @@ Backend: Django, OpenCV (Python)
 
 <br>
 
+## Requirements: 
+
+` mediapipe==0.8.11 `
+
+` Django==4.1.3 `
+
+` numpy==1.17.4 `
+
+` opencv_contrib_python==4.6.0.66 `
+
+<br>
+
+## Steps to run this project on your Local Machine:
+
+<br>
+
+<ul>
+  <li> Clone this repository into your local machine </li>
+  <li> Open terminal and navigate to this repository you have cloned using cd.. command </li>
+  <li> Once inside the repo run the following command: <li>
+    
+    pip3 install -r requirements.txt
+  
+  <li> After the successfull installation of required packages, run the following command </li>
+    
+    python3 manage.py runserver
+    
+    
+  <li>This will start the project on localhost on a particular port number<li>
+  <li> Open any web browser and enter to the particular port which is shown by your particular using below address:</li>
+    
+  ```
+    http://localhost:PORT_NUMBER/
+   ``` 
+    **PORT_NUMBER WILL BE SHOWN BY YOUR TERMINAL**
+  
+  </ul>
+  <br>
+  
 ## :pushpin: Collaborators and Contributors
 
 <table border="1">
