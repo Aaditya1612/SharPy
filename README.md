@@ -15,21 +15,26 @@ Backend: Flask, OpenCV (Python)
 <tr>
 <th> Name </th>
 <th> GitHub Username </th>
+  <th> Worked On </th>
 </tr>
 <tr>
 <td> Aaditya Raj </td>
 <td> <a href="https://github.com/aaditya1612">Aadity1612</a> </td>
+  <td> OpenCV </td>
 </tr>
 <tr>
 <td> Aman Kumar Singh </td>
 <td> <a href="https://github.com/AmankumarSingh18">AmanKumarSingh18</a> </td>
+  <td> Django, Web Implementation </td>
 </tr>
 <tr>
 <td> Aryan Raj </td>
 <td> <a href="https://github.com/NEMESIS-004">NEMESIS-004</a> </td>
+  <td> OpenCV </td>
 </tr>
 <tr>
 <td> Aryan Rajput </td>
 <td> <a href="https://github.com/Aryan-Rajput">Aryan-Rajput</a> </td>
+  <td> Django, Web Implementation </td>
 </tr>
 </table>
