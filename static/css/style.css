@@ -226,19 +226,16 @@ hr{
     display:block;
     margin: auto;
     height: 141px;
-    width: 215px;
+    width: 161px;
 }
 .im1 h2{
     display: flex;
     color: white;
     justify-content: center;
 }
-.im1 p{
-    display: flex;
+.im1 ul{
     color: white;
-    justify-content: center;
-    justify-items: center;
-}
+    }
 
 /* footer */
 
@@ -309,7 +306,7 @@ footer{
     padding: 20px;
     padding-bottom: 40px;
     text-align: center;
-    width: 96vw;
+    width: 100vw;
 }
 .footer-bottom p{
     float: left;
