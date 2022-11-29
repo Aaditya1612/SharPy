@@ -17,13 +17,15 @@ mp_hands = mp.solutions.hands
 
 # Function to detect and track Index finger and Middle finger.
 
+
 def CreateMarks(image):
     isDrawing = False
     x_2, y_2 = 0, 0
     z_1, z_2 = 0, 0
 
     with mp_hands.Hands(
-        model_complexity=0, min_detection_confidence=0.5, min_tracking_confidence=0.5) as hands:
+        model_complexity=0, min_detection_confidence=0.5, min_tracking_confidence=0.5
+    ) as hands:
 
         image.flags.writeable = False
         image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
@@ -46,6 +48,7 @@ def CreateMarks(image):
             z_1, z_2 = landmarkList[4][1], landmarkList[4][2]
             cv.circle(image, (x_1, y_1), 6, (255, 255, 255), cv.FILLED)
             cv.circle(image, (x_2, y_2), 6, (255, 255, 255), cv.FILLED)
+            
             distance = hypot(x_2 - x_1, y_2 - y_1)
             if distance >= 0 and distance < 35:
                 isDrawing = False
@@ -54,13 +57,13 @@ def CreateMarks(image):
 
     return image, isDrawing, [x_2, y_2], [z_1, z_2]
 
+
 # Driver function starts from here
 def open():
     cap = cv.VideoCapture(0)
     h = int(cap.get(3))
     w = int(cap.get(4))
     print(h, w)
-
 
     img = cv.imread("./window_layout_bg.png", 1)
     resize_img = cv.resize(img, (640, 480))
@@ -72,18 +75,16 @@ def open():
     rpoints = [deque(maxlen=1024)]
     ypoints = [deque(maxlen=1024)]
 
-
     blue_index = 0
     green_index = 0
     red_index = 0
     yellow_index = 0
 
-
     colorIndex = 0
 
     colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 255, 255)]
     canvas = None
-
+    shape = "line"
 
     while True:
 
@@ -132,6 +133,16 @@ def open():
                     green_index = 0
                     yellow_index = 0
 
+            if center[0] >= 587:
+                if 64 <= center[1] <= 102:
+                    shape="triangle" #triangle
+                if 134 <= center[1] <=165:
+                    shape="circle" #circle
+                if 215 <= center[1] <= 251:
+                    shape="square" #square 
+                if 294 <= center[1] <= 332:
+                    shape="line" #square               
+
             bpoints.append(deque(maxlen=512))
             blue_index += 1
             gpoints.append(deque(maxlen=512))
@@ -147,7 +158,20 @@ def open():
                 for k in range(1, len(points[i][j])):
                     if points[i][j][k - 1] is None or points[i][j][k] is None:
                         continue
-                    cv.line(frame, points[i][j][k - 1], points[i][j][k], colors[i], 5)
+                    if shape == "line":
+                    	
+                    	cv.line(frame, points[i][j][k - 1], points[i][j][k], colors[i], 7)
+                    elif shape == "square" and isDrawing:
+                    	cv.rectangle(frame, center, thumb, colors[i], 7)
+                    
+                    elif shape == "circle" and isDrawing:
+                    	result = int(((((thumb[0] - center[0]) ** 2) + ((thumb[1] - center[1]) ** 2)) ** 0.5))
+                    	if(result<0):
+                    		result = -1*result
+                    	cv.circle(frame, center, result, colors[i],  7)
+                    
+                    
+                    
 
         cv.imshow("SharPy", frame)
 
@@ -157,3 +181,5 @@ def open():
     cap.release()
     cv.destroyAllWindows()
 
+
+open()
