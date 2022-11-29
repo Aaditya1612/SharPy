@@ -48,7 +48,7 @@ def CreateMarks(image):
             z_1, z_2 = landmarkList[4][1], landmarkList[4][2]
             cv.circle(image, (x_1, y_1), 6, (255, 255, 255), cv.FILLED)
             cv.circle(image, (x_2, y_2), 6, (255, 255, 255), cv.FILLED)
-            
+
             distance = hypot(x_2 - x_1, y_2 - y_1)
             if distance >= 0 and distance < 35:
                 isDrawing = False
@@ -135,13 +135,13 @@ def open():
 
             if center[0] >= 587:
                 if 64 <= center[1] <= 102:
-                    shape="triangle" #triangle
-                if 134 <= center[1] <=165:
-                    shape="circle" #circle
+                    shape = "triangle"  # triangle
+                if 134 <= center[1] <= 165:
+                    shape = "circle"  # circle
                 if 215 <= center[1] <= 251:
-                    shape="square" #square 
+                    shape = "square"  # square
                 if 294 <= center[1] <= 332:
-                    shape="line" #square               
+                    shape = "line"  # square
 
             bpoints.append(deque(maxlen=512))
             blue_index += 1
@@ -159,19 +159,26 @@ def open():
                     if points[i][j][k - 1] is None or points[i][j][k] is None:
                         continue
                     if shape == "line":
-                    	
-                    	cv.line(frame, points[i][j][k - 1], points[i][j][k], colors[i], 7)
+
+                        cv.line(
+                            frame, points[i][j][k - 1], points[i][j][k], colors[i], 7
+                        )
                     elif shape == "square" and isDrawing:
-                    	cv.rectangle(frame, center, thumb, colors[i], 7)
-                    
+                        cv.rectangle(frame, center, thumb, colors[i], 7)
+
                     elif shape == "circle" and isDrawing:
-                    	result = int(((((thumb[0] - center[0]) ** 2) + ((thumb[1] - center[1]) ** 2)) ** 0.5))
-                    	if(result<0):
-                    		result = -1*result
-                    	cv.circle(frame, center, result, colors[i],  7)
-                    
-                    
-                    
+                        result = int(
+                            (
+                                (
+                                    ((thumb[0] - center[0]) ** 2)
+                                    + ((thumb[1] - center[1]) ** 2)
+                                )
+                                ** 0.5
+                            )
+                        )
+                        if result < 0:
+                            result = -1 * result
+                        cv.circle(frame, center, result, colors[i], 7)
 
         cv.imshow("SharPy", frame)
 
