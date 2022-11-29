@@ -189,4 +189,4 @@ def open():
     cv.destroyAllWindows()
 
 
-open()
+
